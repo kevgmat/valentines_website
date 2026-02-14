@@ -1,34 +1,24 @@
-// Quiz Questions about you and your girlfriend
+// Quiz Questions personalized for Tanisha
 const quizQuestions = [
     {
-        question: "What's my favorite color?",
-        options: ["Blue", "Pink", "Green", "Purple"],
-        correct: 1
-    },
-    {
-        question: "What's our favorite food to eat together?",
-        options: ["Pizza", "Sushi", "Pasta", "Tacos"],
+        question: "Where was our first date?",
+        options: ["Nove", "Park", "Cafe", "Home"],
         correct: 0
     },
     {
-        question: "What movie did we watch on our first date?",
-        options: ["Romance film", "Comedy", "Action", "Drama"],
-        correct: 1
-    },
-    {
-        question: "What's my biggest dream?",
-        options: ["Travel the world", "Success in career", "Start a family", "Learn new skills"],
+        question: "When was our first kiss?",
+        options: ["6th Feb", "7th Feb", "5th Feb", "14th Feb"],
         correct: 0
     },
     {
-        question: "What's my favorite season?",
-        options: ["Spring", "Summer", "Fall", "Winter"],
-        correct: 2
+        question: "Who is the best boyfriend?",
+        options: ["me", "Kevin", "Kevin George Mathew", "your bf"],
+        correct: [0,1,2,3]
     },
     {
-        question: "What's the best memory we share?",
-        options: ["First kiss", "First meeting", "A special trip", "Just being together"],
-        correct: 3
+        question: "Who do I love?",
+        options: ["Tanisha", "Tanisha Agarwal", "The best gf", "dumbass"],
+        correct: [0,1,2,3]
     }
 ];
 
@@ -47,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function startCountdown() {
     function updateCountdown() {
         // You can customize the start date here
-        const startDate = new Date(2024, 1, 14); // Start date
+        const startDate = new Date(2025, 1, 5); // Start date (Feb 5, 2025)
         const now = new Date();
         const diff = now - startDate;
         
@@ -115,9 +105,12 @@ function showQuestion() {
 
 function selectAnswer(index) {
     const question = quizQuestions[currentQuestion];
-    
-    if (index === question.correct) {
-        score++;
+    const correct = question.correct;
+
+    if (Array.isArray(correct)) {
+        if (correct.includes(index)) score++;
+    } else {
+        if (index === correct) score++;
     }
     
     currentQuestion++;
@@ -356,15 +349,38 @@ function scrollTo(sectionId) {
 
 // Music Player (Mock)
 let isPlaying = false;
+const playlist = [
+    'https://www.youtube.com/watch?v=-2RAq5o5pwc&list=RD-2RAq5o5pwc&start_radio=1'
+];
 
 function togglePlayPause() {
     const btn = event.target;
     isPlaying = !isPlaying;
     btn.textContent = isPlaying ? '⏸️ Pause' : '▶️ Play';
-    
+
+    const frameContainer = document.getElementById('playerFrame');
+    if (!frameContainer) return;
+
     if (isPlaying) {
-        // In a real app, you'd play actual music
-        console.log('Playing love songs...');
+        const url = playlist[0];
+        const videoMatch = url.match(/v=([^&]+)/);
+        const listMatch = url.match(/list=([^&]+)/);
+        if (videoMatch) {
+            const videoId = videoMatch[1];
+            let embed = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            if (listMatch) embed += `&list=${listMatch[1]}`;
+            const iframe = document.createElement('iframe');
+            iframe.width = '560';
+            iframe.height = '315';
+            iframe.src = embed;
+            iframe.allow = 'autoplay; encrypted-media';
+            iframe.setAttribute('allowfullscreen', '');
+            iframe.id = 'musicIframe';
+            frameContainer.innerHTML = '';
+            frameContainer.appendChild(iframe);
+        }
+    } else {
+        frameContainer.innerHTML = '';
     }
 }
 
