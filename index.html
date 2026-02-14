@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 Our Love Story 💕</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">💕 Our Love</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#story" class="nav-link">Our Story</a></li>
+                <li><a href="#memories" class="nav-link">Memories</a></li>
+                <li><a href="#messages" class="nav-link">Messages</a></li>
+                <li><a href="#games" class="nav-link">Games</a></li>
+                <li><a href="#surprise" class="nav-link">Surprise</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Happy Valentine's Day</h1>
+            <p class="hero-subtitle">To my favorite person in the entire world</p>
+            <div class="floating-hearts">
+                <div class="heart heart1">💕</div>
+                <div class="heart heart2">💕</div>
+                <div class="heart heart3">💕</div>
+                <div class="heart heart4">💕</div>
+                <div class="heart heart5">💕</div>
+            </div>
+            <button class="cta-button" onclick="scrollTo('story')">Begin Our Journey ↓</button>
+        </div>
+        <div class="hero-background"></div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section id="story" class="our-story">
+        <div class="container">
+            <h2>Our Story</h2>
+            <div class="story-grid">
+                <div class="story-card">
+                    <div class="story-number">01</div>
+                    <h3>The Beginning</h3>
+                    <p>It all started with a smile that made my heart skip a beat. I knew from that moment that you were someone special.</p>
+                </div>
+                <div class="story-card">
+                    <div class="story-number">02</div>
+                    <h3>Growing Closer</h3>
+                    <p>Every moment with you became precious. Your laugh, your kindness, your presence - everything about you captivated me.</p>
+                </div>
+                <div class="story-card">
+                    <div class="story-number">03</div>
+                    <h3>Love Blooms</h3>
+                    <p>I realized that you're not just my love, but also my best friend, my confidant, and my home.</p>
+                </div>
+            </div>
+            <div class="countdown-section">
+                <h3>Days Together</h3>
+                <div id="countdown" class="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">0</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">0</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">0</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                </div>
+                <p class="countdown-note">And counting forever...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memories Gallery -->
+    <section id="memories" class="memories">
+        <div class="container">
+            <h2>Our Memories</h2>
+            <p class="section-subtitle">Click to add your favorite photos!</p>
+            <div class="gallery">
+                <div class="gallery-item" data-description="Our first adventure">
+                    <div class="gallery-placeholder">📸</div>
+                    <p>Our First Adventure</p>
+                </div>
+                <div class="gallery-item" data-description="A beautiful sunset">
+                    <div class="gallery-placeholder">🌅</div>
+                    <p>Beautiful Sunsets</p>
+                </div>
+                <div class="gallery-item" data-description="Making memories together">
+                    <div class="gallery-placeholder">🎉</div>
+                    <p>Fun Moments</p>
+                </div>
+                <div class="gallery-item" data-description="Laughs and smiles">
+                    <div class="gallery-placeholder">😄</div>
+                    <p>Your Beautiful Smile</p>
+                </div>
+                <div class="gallery-item" data-description="Cozy moments">
+                    <div class="gallery-placeholder">🏠</div>
+                    <p>Cozy Moments</p>
+                </div>
+                <div class="gallery-item" data-description="To be filled with our memories">
+                    <div class="gallery-placeholder">✨</div>
+                    <p>More Memories Soon</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Messages Wall -->
+    <section id="messages" class="messages">
+        <div class="container">
+            <h2>Love Messages</h2>
+            <p class="section-subtitle">Add your love notes here ❤️</p>
+            <div class="message-input-section">
+                <textarea id="messageInput" placeholder="Write a love message for your special someone..." maxlength="200"></textarea>
+                <button class="submit-btn" onclick="addMessage()">Send Message 💌</button>
+            </div>
+            <div class="messages-wall" id="messagesWall">
+                <div class="message-card">
+                    <p>"I love you more with each passing day."</p>
+                    <span class="message-date">Today</span>
+                </div>
+                <div class="message-card">
+                    <p>"You make my heart skip a beat every single time."</p>
+                    <span class="message-date">Today</span>
+                </div>
+                <div class="message-card">
+                    <p>"Forever isn't long enough with you."</p>
+                    <span class="message-date">Today</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Games -->
+    <section id="games" class="games">
+        <div class="container">
+            <h2>Fun Games</h2>
+            
+            <!-- Love Match Game -->
+            <div class="game-section">
+                <h3>💖 Love Match Game</h3>
+                <p>Test your knowledge about your special someone!</p>
+                <div class="quiz-container" id="quizContainer">
+                    <div class="quiz-question" id="quizQuestion"></div>
+                    <div class="quiz-options" id="quizOptions"></div>
+                    <div class="quiz-result" id="quizResult" style="display:none;"></div>
+                </div>
+                <button class="play-btn" onclick="startQuiz()">Play Quiz 🎮</button>
+            </div>
+
+            <!-- Heart Clicker Game -->
+            <div class="game-section">
+                <h3>💗 Heart Clicker</h3>
+                <p>Click hearts as fast as you can! See how many you can get in 10 seconds.</p>
+                <div class="game-stats">
+                    <p>Score: <span id="gameScore">0</span></p>
+                    <p>Time: <span id="gameTime">10</span>s</p>
+                </div>
+                <div class="clickable-hearts" id="clickableHearts"></div>
+                <button class="play-btn" onclick="startHeartGame()">Start Game ❤️</button>
+            </div>
+
+            <!-- Spin the Bottle -->
+            <div class="game-section">
+                <h3>🎡 Spin the Wheel of Love</h3>
+                <p>Spin to get a romantic message or dare!</p>
+                <div class="wheel-container">
+                    <div class="wheel" id="wheel">
+                        <div class="segment segment-1">A Kiss</div>
+                        <div class="segment segment-2">A Hug</div>
+                        <div class="segment segment-3">Coffee Date</div>
+                        <div class="segment segment-4">Movie Night</div>
+                        <div class="segment segment-5">Romantic Dinner</div>
+                        <div class="segment segment-6">Long Walk</div>
+                        <div class="segment segment-7">Picnic</div>
+                        <div class="segment segment-8">Dance</div>
+                    </div>
+                </div>
+                <button class="play-btn" onclick="spinWheel()">SPIN 🎡</button>
+                <p class="wheel-result" id="wheelResult" style="display:none;"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Player -->
+    <section class="music-player">
+        <div class="player-content">
+            <h3>🎵 Our Playlist</h3>
+            <div class="player-controls">
+                <button class="player-btn" onclick="togglePlayPause()">▶️ Play</button>
+                <span class="player-info">Love Songs Collection</span>
+                <button class="player-btn" onclick="nextSong()">⏭️ Next</button>
+            </div>
+            <p class="player-note">Now playing: Your beautiful presence in my life ✨</p>
+        </div>
+    </section>
+
+    <!-- Surprise Section -->
+    <section id="surprise" class="surprise">
+        <div class="container">
+            <h2>Special Surprise for You</h2>
+            <p class="section-subtitle">Click the button below for a special surprise!</p>
+            <div class="surprise-container">
+                <button class="surprise-btn" id="surpriseBtn" onclick="triggerSurprise()">Click Me! 🎁</button>
+                <div class="surprise-message" id="surpriseMessage" style="display:none;">
+                    <div class="message-content">
+                        <p>You are the most amazing person I know.</p>
+                        <p>Every moment with you is precious.</p>
+                        <p>I can't wait for all our future adventures together.</p>
+                        <p>I love you more than words can express.</p>
+                        <p>Happy Valentine's Day! 💕</p>
+                    </div>
+                </div>
+                <div class="confetti" id="confetti"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Letter Section -->
+    <section class="love-letter">
+        <div class="container">
+            <h2>A Letter to You</h2>
+            <div class="letter-content">
+                <p>My Dearest,</p>
+                <p>
+                    Today, I want to take a moment to tell you how much you mean to me. 
+                    Every day with you is a blessing that I never want to take for granted.
+                </p>
+                <p>
+                    You've brought so much joy, laughter, and light into my life. 
+                    When I'm with you, everything feels right in the world.
+                </p>
+                <p>
+                    I admire your strength, your kindness, your beautiful spirit, and your 
+                    incredible heart. You inspire me to be a better person every single day.
+                </p>
+                <p>
+                    Thank you for being my partner, my best friend, and my soulmate. 
+                    I promise to cherish you, support you, and love you with all my heart, 
+                    not just today, but forever.
+                </p>
+                <p>
+                    You make my life so much brighter. I love you more than I could ever 
+                    express with words.
+                </p>
+                <p class="letter-signature">Forever Yours,<br>💕</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Made with 💕 for the one I love</p>
+        <p>Happy Valentine's Day 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
